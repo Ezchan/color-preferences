@@ -2,6 +2,8 @@
 
 This project uses .NET CORE, Angular 8, Entity Framework, Bootstrap, and SQL for the db
 
+I did not use the Repository Pattern or Dependency Injection in my sample just due to the scope of this project, but if you guys need me to add it I can.
+
 If you need to download the .NET CORE SDK/.NET CLI you can do so here -> https://dotnet.microsoft.com/download
 
 ### Steps to Run:
