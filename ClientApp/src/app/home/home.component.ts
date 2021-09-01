@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
     this.entryService.getStats().subscribe((res: []) => {
       this.stats = res;
-      console.log(this.stats);
+      //console.log(this.stats);
     });
   }
 }

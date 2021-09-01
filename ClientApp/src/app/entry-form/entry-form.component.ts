@@ -50,7 +50,7 @@ export class EntryFormComponent implements OnInit {
   ngOnInit() {
     this.entryService.getColors().subscribe((res) => {
       this.colors = res;
-      console.log(this.colors);
+      //console.log(this.colors);
     });
   }
 
@@ -74,7 +74,7 @@ export class EntryFormComponent implements OnInit {
     if (this.entryForm.valid) {
       this.entryService.create(entry).subscribe(
         (res) => {
-          console.log(res);
+          //console.log(res);
           this.toasterService.success(
             "Successfully submitted your entry!",
             "Success"
