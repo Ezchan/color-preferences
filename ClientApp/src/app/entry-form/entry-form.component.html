@@ -1,0 +1,104 @@
+<h1>New Entry</h1>
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      formControlName="first_name"
+      placeholder="John"
+    />
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="
+      entryForm.get('first_name').touched && !entryForm.get('first_name').valid
+    "
+  >
+    First name is required.
+  </p>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      formControlName="last_name"
+      placeholder="Doe"
+    />
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="
+      entryForm.get('last_name').touched && !entryForm.get('last_name').valid
+    "
+  >
+    Last name is required.
+  </p>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      id="age"
+      formControlName="age"
+      placeholder="18"
+    />
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="entryForm.get('age').touched && !entryForm.get('age').valid"
+  >
+    Age name is required and must be 1 or greater.
+  </p>
+  <div class="form-group">
+    <label for="color">Favorite Color</label>
+    <select
+      class="form-control"
+      id="color"
+      formControlName="favorite_color"
+      (change)="onColorChange()"
+    >
+      <option *ngFor="let c of colors" value="{{ c }}">{{ c }}</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="
+      entryForm.get('favorite_color').touched &&
+      !entryForm.get('favorite_color').valid
+    "
+  >
+    Favorite color is required.
+  </p>
+  <div
+    class="form-group"
+    *ngIf="this.entryForm.get('favorite_color').value == 'Other'"
+  >
+    <label for="newColor">New Color</label>
+    <input
+      type="text"
+      class="form-control"
+      id="newColor"
+      formControlName="new_color"
+      placeholder="Lime Green"
+    />
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="
+      entryForm.get('new_color').touched && !entryForm.get('new_color').valid
+    "
+  >
+    New color option is required.
+  </p>
+  <button
+    type="submit"
+    [disabled]="!entryForm.valid || submitted"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+</form>
